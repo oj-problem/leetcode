@@ -67,6 +67,52 @@ class Solution {
     }
 };
 
+// Best way is to use STL priority queue.
+////////////////////////////////////////////
+/*
+struct cmp {
+  bool operator() (ListNode *a, ListNode *b) 
+  {
+    return a -> val > b -> val;
+  }
+};
+
+class Solution {
+  public:
+    ListNode* mergeKLists(vector<ListNode*>& lists) {
+      priority_queue<ListNode *, vector<ListNode *>, cmp> pq;      
+      // Initialize priority queue elements.
+      for (int i = 0; i < lists.size(); i ++)
+      {
+        if (lists[i] != NULL)
+        {
+          pq.push(lists[i]);
+        }
+      }
+
+      ListNode *head, *p, *tmp;
+      head = new ListNode(-1);
+      p = head;
+
+      while (!pq.empty())
+      {
+        tmp = pq.top();
+        pq.pop();
+        p -> next = tmp;
+        p = p -> next;
+
+        ListNode *q = NULL;
+        q = tmp -> next;
+        if (q != NULL)
+        {
+          pq.push(q);
+        } 
+      }
+      return head -> next;         
+    }
+};
+*/
+
 
 int main(int argc, char **argv)
 {
